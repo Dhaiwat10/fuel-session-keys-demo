@@ -6,6 +6,7 @@ import {
   TestPredicate,
   TestPredicateInputs,
 } from "../../src/sway-api/predicates/TestPredicate";
+import { toUtf8Bytes } from "fuels";
 
 describe("Predicate", () => {
   test("Transaction", async () => {
@@ -15,9 +16,14 @@ describe("Predicate", () => {
       provider,
     } = launched;
 
-    const signedMessage = await walletA.signMessage("gFUEL");
+    const messageToSign = Uint8Array.from([
+      ...toUtf8Bytes("gFUEL"),
+      ...new Uint8Array(27),
+    ]);
 
-    const predicateData: TestPredicateInputs = [signedMessage, "gFUEL"];
+    const signedMessage = await walletA.signMessage(messageToSign);
+
+    const predicateData: TestPredicateInputs = [signedMessage, messageToSign];
 
     const predicate = new TestPredicate({
       provider,
