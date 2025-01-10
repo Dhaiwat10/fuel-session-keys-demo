@@ -1,6 +1,6 @@
 predicate;
 
-use std::{b512::B512, constants::ZERO_B256, ecr::ec_recover_address};
+use std::{b512::B512, constants::ZERO_B256, ecr::ec_recover_address, logging::log};
 
 configurable {
     MAIN_ADDRESS: b256 = ZERO_B256,

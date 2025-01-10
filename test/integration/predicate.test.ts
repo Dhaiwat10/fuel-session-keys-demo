@@ -6,7 +6,7 @@ import {
   TestPredicate,
   TestPredicateInputs,
 } from "../../src/sway-api/predicates/TestPredicate";
-import { toUtf8Bytes } from "fuels";
+import { sha256, toUtf8Bytes } from "fuels";
 
 describe("Predicate", () => {
   test("Transaction", async () => {
@@ -21,9 +21,12 @@ describe("Predicate", () => {
       ...new Uint8Array(27),
     ]);
 
+    // @ts-expect-error signMessage does not accept Uint8Array in the type definition
     const signedMessage = await walletA.signMessage(messageToSign);
 
-    const predicateData: TestPredicateInputs = [signedMessage, messageToSign];
+    const messageHash = sha256(Buffer.from(messageToSign));
+
+    const predicateData: TestPredicateInputs = [signedMessage, messageHash];
 
     const predicate = new TestPredicate({
       provider,
