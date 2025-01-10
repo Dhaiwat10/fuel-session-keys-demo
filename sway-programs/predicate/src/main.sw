@@ -7,8 +7,8 @@ configurable {
     BURNER_ADDRESS: b256 = ZERO_B256,
 }
 
-fn main(signature: b256, message: B512) -> bool {
-    if let Ok(signer) = ec_recover_address(message, signature) {
+fn main(signature: B512, message: b256) -> bool {
+    if let Ok(signer) = ec_recover_address(signature, message) {
         let address = signer.bits();
         // Either key can sign
         address == MAIN_ADDRESS || address == BURNER_ADDRESS

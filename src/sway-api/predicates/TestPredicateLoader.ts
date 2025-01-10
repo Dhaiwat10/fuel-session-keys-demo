@@ -76,11 +76,11 @@ const abi = {
       "inputs": [
         {
           "name": "signature",
-          "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+          "concreteTypeId": "745e252e80bec590efc3999ae943f07ccea4d5b45b00bb6575499b64abdd3322"
         },
         {
           "name": "message",
-          "concreteTypeId": "745e252e80bec590efc3999ae943f07ccea4d5b45b00bb6575499b64abdd3322"
+          "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
         }
       ],
       "name": "main",
@@ -104,7 +104,7 @@ const abi = {
   ]
 };
 
-const bytecode = decompressBytecode('H4sIAAAAAAAAA5NyMGAIcGQwkHIJYNjlycBg5MDSCOQrxALZQJoDyG9ScBVmCHIVYPFyYWBQmuFWmP1QUfrD/DmtD7nYPvDtPzbvF6/iM9vZ4mteaj+RZoCACihNAHBvgNIzIDT7EuL04QYA6Vn1wtAAAAA=');
+const bytecode = decompressBytecode('H4sIAAAAAAAAA5NyMGAIcGQwkHIJYNjlycBg5MDSCOQrxALZQJoDyG9ScBVmCHIVYPFyYWDY7iW3U0B/z2WPc44me8SN63ZuvLav/NXp1SWP4+4k7pa9wAABFVCaAODeAKVnQGj2JcTpww0AxbYv0tAAAAA=');
 
 export class TestPredicateLoader extends Predicate<
   TestPredicateLoaderInputs,
